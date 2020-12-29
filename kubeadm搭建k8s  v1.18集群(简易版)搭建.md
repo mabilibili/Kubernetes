@@ -262,7 +262,14 @@ kubectl get nodes all
 
 ##3.3 work节点加入集群
 
+
+
 ```shell
+#3.1 node 启动kubelet服务
+systemctl enable kubelet
+systemctl start kubelet
+
+#3.2 将node加入master
 kubeadm join 192.168.233.10:6443 --token 44tmag.esl75jvr1zskpmex \
   --discovery-token-ca-cert-hash sha256:26ae63522d00464ea9e57e21f996b9ab70c42166d0e1d4d4e96e6471006dc9a4 
 
