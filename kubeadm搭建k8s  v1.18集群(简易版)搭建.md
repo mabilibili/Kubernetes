@@ -1,7 +1,6 @@
 # Kubernetes
 
-# kubeadm搭建k8s集群(简易版) 全过程
-
+kubeadm搭建k8s  v1.18集群(简易版)搭建.md
 
 # 1. 集群规划
 
