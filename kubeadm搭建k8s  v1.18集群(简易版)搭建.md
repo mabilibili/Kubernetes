@@ -175,9 +175,44 @@ systemctl restart systemd-journald
 ## 2.8 YUM 仓库配置
 
 ```shell
-https://github.com/mabilibili/Linux/blob/main/CentOS7_aliyun.repo
-https://github.com/mabilibili/Linux/blob/main/kubernetes_os7_aliyun.repo
-https://github.com/mabilibili/Linux/blob/main/docker_os7_aliyun.repo
+cat >/etc/yum.repo.d/CentOS7_aliyun.repo<<EOF
+[base]
+name=CentOS-$releasever - Base - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/7/os/x86_64/
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
+ 
+#released updates 
+[updates]
+name=CentOS-$releasever - Updates - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/7/updates/x86_64/
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
+ 
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/7/extras/x86_64/
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
+ 
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/7/centosplus/x86_64/
+gpgcheck=1
+enabled=0
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7
+
+EOF
+
+cd /etc/yum.repo.d/
+wget https://github.com/mabilibili/Linux/blob/main/kubernetes_os7_aliyun.repo
+wget https://github.com/mabilibili/Linux/blob/main/docker_os7_aliyun.repo
 
 ```
 
