@@ -14,7 +14,28 @@
 
 
 
-# 二、
+# 二、什么是controller
+
+> 在集群上管理和运行容器的对象
+
+## 1. controller 与 Pod关系
+> Pod是通过controller实现应用的运维，如伸缩，滚动升级
+
+## 2.Controller 与 Pod 关联
+--> 通过 label  ： selector
+
+## 3. Deployment应用场景与功能
+
+> web服务，微服务等无状态的应用 
+
+> 管理Pod和replicaSet
+
+> 部署滚动升级等功能
+
+
+
+
+
 
 
 
