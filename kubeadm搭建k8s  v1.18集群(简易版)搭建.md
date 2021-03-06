@@ -222,6 +222,13 @@ EOF
 
 systemctl start docker && systemctl enable docker
 
+
+# 所有服务器上启动kubelet服务
+systemctl enable kubelet
+systemctl start kubelet
+
+
+
 ```
 
 
